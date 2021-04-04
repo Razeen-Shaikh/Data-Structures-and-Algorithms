@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 class Stack {
     private static int top = -1;
     private static int size = 4; // Fixed Size

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 int top = -1;
 int size = 4; // Fixed Size
 int s[4];
