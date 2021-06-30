@@ -3,7 +3,7 @@
 
 int r = -1;
 int size = 5; // Fixed Size
-int f = 0;
+int f = 0, count = 0;
 int queue[5];
 
 void insert() {
@@ -14,8 +14,9 @@ void insert() {
 	} else {
 		printf("Enter an element \n");
 		scanf("%d", &element);
-		++r;
+		r = (r+1) % size;
 		queue[r] = element;
+		++count;
 	}
 }
 
@@ -24,17 +25,19 @@ void delete() {
 		printf("Queue is empty \n");
 	} else {
 		printf("Element deleted is %d \n", queue[f]);
-		++f;
+		f = (f+1) % size;
+		--count;
 	}
 }
 
 void display() {
-	int i;
-	if(r == -1 || f > r) {
+	int i, j = f;
+	if(count == 0) {
 		printf("Queue is empty \n");
 	} else {
-		for(i = f; i <= r; i++) {
-			printf("%d \t", queue[i]);
+		for(i = 1; i <= count; i++) {
+			printf("%d \n", queue[j]);
+			j = (j+1) % size;
 		}
 	}
 }
